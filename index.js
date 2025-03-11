@@ -52,6 +52,8 @@ app.post("/api/backup", (req, res) => {
   const command = `PGPASSWORD=${dbPassword} pg_dump -U ${dbUser} -h ${dbHost} -p ${dbPort} ${dbName} > ${backupFilePath}`;
 
   exec(command, (error, stdout, stderr) => {
+    console.log(stdout);
+    console.log(stderr);
     console.log(command);
     if (error) {
       console.error(`Error executing backup: ${stderr}`);
