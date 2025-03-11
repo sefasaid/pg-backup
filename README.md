@@ -14,7 +14,59 @@ This application is a simple web interface for creating and downloading PostgreS
 
 - Node.js and npm installed on your machine.
 - PostgreSQL installed and accessible from your server.
+- PostgreSQL client (e.g., `psql`) installed on your machine.
 - A `.env` file with the necessary configuration.
+
+## PostgreSQL Client Installation
+
+To install the PostgreSQL client on your machine, follow these steps:
+
+### On macOS
+
+1. **Using Homebrew:**
+
+   ```bash
+   brew install postgresql
+   ```
+
+2. **Verify the installation:**
+
+   ```bash
+   psql --version
+   ```
+
+### On Ubuntu
+
+1. **Update the package list:**
+
+   ```bash
+   sudo apt update
+   ```
+
+2. **Install the PostgreSQL client:**
+
+   ```bash
+   sudo apt install postgresql-client
+   ```
+
+3. **Verify the installation:**
+
+   ```bash
+   psql --version
+   ```
+
+### On Windows
+
+1. **Download the installer from the official PostgreSQL website:**
+   [PostgreSQL Downloads](https://www.postgresql.org/download/)
+
+2. **Run the installer and select the components you need, including the command line tools.**
+
+3. **Verify the installation by opening a command prompt and typing:**
+
+   ```bash
+   psql --version
+   ```
 
 ## Installation
 
@@ -72,13 +124,9 @@ This application is a simple web interface for creating and downloading PostgreS
 
 5. **Delete a backup:**
 
-   Use the provided script or function to delete backup files. Ensure you specify the correct directory where your backup files are stored.
+   To delete a backup, simply click the "Delete" button next to the backup file you wish to remove in the web interface. This will send a request to the server to delete the file from the backups directory.
 
-   Example usage:
-
-   ```bash
-   node delete_backups.js /path/to/your/backup/directory
-   ```
+   Ensure the server is running and you have the necessary permissions to delete files from the server's file system.
 
 ## Security
 
