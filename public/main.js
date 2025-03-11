@@ -35,10 +35,38 @@ function fetchAndDisplayBackups() {
         link.href = `/download/${file}`;
         link.download = file;
         li.appendChild(link);
+
+        // Create delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", function () {
+          deleteBackup(file);
+        });
+        li.appendChild(deleteButton);
+
         fileListElement.appendChild(li);
       });
     })
     .catch((error) => {
       console.error("Error fetching backup files:", error);
+    });
+}
+
+function deleteBackup(filename) {
+  fetch(`/api/backups/${filename}`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to delete file");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      alert(data.message);
+      fetchAndDisplayBackups(); // Refresh the file list
+    })
+    .catch((error) => {
+      console.error("Error deleting backup:", error);
     });
 }

@@ -7,6 +7,7 @@ This application is a simple web interface for creating and downloading PostgreS
 - Basic authentication to secure access.
 - Create PostgreSQL database backups.
 - Download existing backup files.
+- **Delete backup files.**
 - Simple and clean user interface.
 
 ## Prerequisites
@@ -68,6 +69,16 @@ This application is a simple web interface for creating and downloading PostgreS
 4. **Download a backup:**
 
    Click on any backup file listed to download it to your local machine.
+
+5. **Delete a backup:**
+
+   Use the provided script or function to delete backup files. Ensure you specify the correct directory where your backup files are stored.
+
+   Example usage:
+
+   ```bash
+   node delete_backups.js /path/to/your/backup/directory
+   ```
 
 ## Security
 

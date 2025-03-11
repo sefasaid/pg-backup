@@ -81,6 +81,22 @@ app.get("/download/:filename", (req, res) => {
   });
 });
 
+// Endpoint to delete a backup file
+app.delete("/api/backups/:filename", (req, res) => {
+  const backupDir = path.join(__dirname, "backups");
+  const filePath = path.join(backupDir, req.params.filename);
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      if (err.code === "ENOENT") {
+        return res.status(404).json({ error: "File not found" });
+      }
+      return res.status(500).json({ error: "Unable to delete file" });
+    }
+    res.status(200).json({ message: "File deleted successfully" });
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

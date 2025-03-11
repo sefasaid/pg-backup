@@ -42,7 +42,26 @@ ul {
 }
 
 li {
-  margin: 5px 0;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.delete {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.delete:hover {
+  background-color: #c82333;
 }
 
 a {
