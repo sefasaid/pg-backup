@@ -1,7 +1,9 @@
 {
-    "watch": ["server", "client"],
-    "ignore_watch" : ["node_modules", "backups"],
+    "script": "index.js",
+    "watch": true,
+    "ignore_watch": ["backups"],
     "watch_options": {
-      "followSymlinks": false
-    }
+        "followSymlinks": false
+    },
+    "name": "postgres-backup"
   }
